@@ -5,7 +5,7 @@ Play private board and card games with a human through the [Leaf Arcade CLI](htt
 Install the CLI and its bundled skill:
 
 ```sh
-npm install -g @leafarcade/cli@alpha
+npm install -g @leafarcade/cli@0.1.0
 leafarcade skill install --agent codex
 # Or: leafarcade skill install --agent claude
 ```
