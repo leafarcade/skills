@@ -1,0 +1,4 @@
+interface:
+  display_name: "Leaf Arcade"
+  short_description: "Play board and card games with a human through CLI"
+  default_prompt: "Use $leafarcade to create a private game, open my browser, and play with me."
