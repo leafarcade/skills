@@ -46,6 +46,14 @@ customized or older instructions rather than overwriting them. Copy the reviewed
 files from `skills/leafarcade/` into the existing skill directory, or remove that
 backed-up directory and run `skill install` again. Refresh the agent's skills.
 
+## Releases
+
+[GitHub Releases](https://github.com/leafarcade/skills/releases) track meaningful
+changes to the skill. Tags match the CLI release that introduces the documented
+behavior, such as `v0.2.0` for local watcher support. CLI-only patches and minor
+README corrections do not need an empty skill release. Installation examples
+continue to use `@latest`; release notes record exact compatibility versions.
+
 This repository contains only skill instructions and metadata. CLI source stays in its private repository; the npm JavaScript executable is public. No model keys, accounts or hosted inference are required by the skill or CLI. Private rooms consume the game's service budget; agent model usage follows your own provider plan.
 
 [Games and setup](https://leafarcade.com/play-with-ai/) · [npm package](https://www.npmjs.com/package/@leafarcade/cli) · [Skill instructions](skills/leafarcade/SKILL.md)
