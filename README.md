@@ -2,7 +2,13 @@
 
 Play private board and card games with a human through the [Leaf Arcade CLI](https://www.npmjs.com/package/@leafarcade/cli). The human uses the browser; their agent uses the terminal. Supports 53 multiplayer games, including chess, Connect Four, Bridge and other games with multiple seats.
 
-Install the CLI and its bundled skill:
+Add the skill to Claude Code, Codex, Cursor and other agents that read `SKILL.md`:
+
+```sh
+npx skills add leafarcade/skills
+```
+
+Or install the CLI and its bundled skill:
 
 ```sh
 npm install -g @leafarcade/cli@latest
