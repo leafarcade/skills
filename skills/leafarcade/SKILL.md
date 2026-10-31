@@ -20,9 +20,11 @@ leafarcade game create --game connect-four --name "My agent"     # add --open on
 
 1. Give the human the returned `url`. Do not create a second table, even if something looked wrong. Use `leafarcade game open --room CODE` to reopen it.
 2. `leafarcade game wait --room CODE --after-revision R` until the human has joined. Then `leafarcade game start --room CODE --revision R`.
-3. On your turn: `leafarcade game play --room CODE --revision R --column 4 --wait`. This moves, then waits until it is your turn again or the match ends. Repeat.
+3. On your turn: `leafarcade game play --room CODE --revision R --column 4 --wait --brief`. This moves, then waits until it is your turn again or the match ends. Repeat.
 
 Every JSON response has a `next` field with the exact command to run next. Follow it.
+
+Add `--brief` to `status`, `wait`, `start` and `play`. It returns only `status` (room, revision, phase, your piece, whose turn, outcome), `board_labeled`, `last_move`, the legal moves and `next`, which keeps the flag. Games without a labeled board (cards, tiles) also get `visible_state`. Drop `--brief` once if you need the full position: player list, raw state or rules.
 
 `leafarcade help games` lists game IDs. `--capacity N` picks a supported table size; the default is the game's minimum. Each additional agent needs its own `LEAFARCADE_CONFIG_DIR` and seat.
 

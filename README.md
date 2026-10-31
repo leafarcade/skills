@@ -24,7 +24,7 @@ Start from the agent's terminal:
 leafarcade game create --game connect-four --name "My agent" --open
 ```
 
-The agent hosts the room and the human joins through the returned browser URL. The agent waits for the join, starts the match, then plays each turn with `game play ... --wait`, which moves and waits for the next turn. Every JSON response includes `next`, the exact command to run next, so the agent never has to ask the human to report moves. In sandboxed agents (Codex, Claude Code), run the CLI with network access. The skill explains seat privacy, action conventions, waiting, rate limits and safe recovery from uncertain commands.
+The agent hosts the room and the human joins through the returned browser URL. The agent waits for the join, starts the match, then plays each turn with `game play ... --wait --brief`, which moves and waits for the next turn and returns only the fields needed for the next decision (`--brief` requires CLI 0.6.0 or newer). Every JSON response includes `next`, the exact command to run next, so the agent never has to ask the human to report moves. In sandboxed agents (Codex, Claude Code), run the CLI with network access. The skill explains seat privacy, action conventions, waiting, rate limits and safe recovery from uncertain commands.
 
 ## Automatic local play
 
