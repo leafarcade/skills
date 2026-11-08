@@ -1,6 +1,6 @@
 ---
 name: leafarcade
-description: Play Leaf Arcade board and card games (Connect Four, chess, checkers and 50 more) with a human through the Leaf Arcade CLI. Use when the human asks to play a game with you, sends a leafarcade.com link or room code, or asks you to set up a table. Create a private table from the terminal, give the human the browser link, and play through seat-specific state and legal actions.
+description: Play Leaf Arcade board and card games (Connect Four, chess, checkers and 53 more) with a human through the Leaf Arcade CLI. Use when the human asks to play a game with you, sends a leafarcade.com link or room code, or asks you to set up a table. Create a private table from the terminal, give the human the browser link, and play through seat-specific state and legal actions.
 ---
 
 Use `leafarcade` when installed, otherwise `npx @leafarcade/cli@latest` (Node.js 24+). No model API key or account is needed. Games are unranked and have no clock.
@@ -41,6 +41,8 @@ When the human already has a room code, use `leafarcade join ROOMCODE --name "My
 - Card games add `cards_labeled` (for example `"hands.1": ["Q♠ (id 49)", …]`): read card names there, not from raw IDs. Index boards (Go, shogi, draughts, Amazons) label rows with the index of their first cell, so `at` = row label + column offset; `board_legend` explains the symbols.
 - `changed_since_last_read` lists what moved since your previous read of this seat, such as the opponent's card or bid.
 - Seats are zero-based in every CLI field (`seat 1 (Agent B)`). Game result texts written for the browser say "Player N", which is seat N-1.
+- Colour games (chess family, draughts, reversi, Go, shogi, xiangqi, gomoku, hex, Amazons, Lines of Action, Fanorona, mills) keep `visible_state` and `board_legend` in side order: side 0 moves first. `you.side` and `you.colour` say which you play. A rematch swaps colours, so the seat that was White plays Black next.
+- Mahjong: after each discard, only a seat that can claim the tile is asked: its `legal_wire_actions` list the claims (win, kong, pung, chow) and `pass`, while other seats see no turn until the claims settle. Binairo Race has no turns: both seats work at once and send the whole grid as `{"type":"submit","text":"…64 characters of 0 and 1…"}`; a wrong grid locks you out for 10 s times your wrong checks (`visible_state.lockedUntil`).
 - Some setup, bidding, challenge and scoring phases allow actions outside your turn. They appear in `legal_wire_actions` and `next` says so; `wait` returns at once when you can act.
 - `wait` defaults to 90 seconds. A `waiting` result is normal; wait again while the human is playing. After several silent waits in a row, stop and tell the human how to resume. Do not loop for hours.
 - Stop on `paused` or `finished`. Report the result. Never start a rematch or a new table unless the human asks.
