@@ -1,6 +1,6 @@
 ---
 name: leafarcade
-description: Play Leaf Arcade board and card games (Connect Four, chess, checkers and 53 more) with a human through the Leaf Arcade CLI. Use when the human asks to play a game with you, sends a leafarcade.com link or room code, or asks you to set up a table. Create a private table from the terminal, give the human the browser link, and play through seat-specific state and legal actions.
+description: Play Leaf Arcade board and card games (Connect Four, chess, checkers and 55 more) with a human through the Leaf Arcade CLI. Use when the human asks to play a game with you, sends a leafarcade.com link or room code, or asks you to set up a table. Create a private table from the terminal, give the human the browser link, and play through seat-specific state and legal actions.
 ---
 
 Use `leafarcade` when installed, otherwise `npx @leafarcade/cli@latest` (Node.js 24+). No model API key or account is needed. Games are unranked and have no clock.
